@@ -1,12 +1,3 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <style>
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -43,16 +34,18 @@
     <div class="form-group">  
       <h1 class="text-center text-primary">The Idks of March</h1>   
       <div class="input-group-prepend">       
-        <input #cipher type="text" class="form-control" placeholder="Enter Text You Want To Encode" name="cipher" ngModel>    
-        <span class="input-group-text" (click)="addCipher(cipher.value)">Run Cipher</span>  
+        <form (submit)="getCipher()">
+        <input type="text" class="form-control" placeholder="Enter Text You Want To Encode" name="text" /> 
+        <input type="text" class="form-control" placeholder="Enter Text You Want To Encode" name="shift" />    
+        <button type="submit" class="input-group-text">Run Cipher</button>  
+        </form>
       </div>  
-      <p>{{cipher.value}}</p> 
     </div>
   </form>
   <div class="data">  
-    <ul class="list-instyled">   
-      <li *ngFor="let cipher of cipherArray">{{cipher}}</li>  
-    </ul>  
+    <div class="panel panel-default">   
+      <div class="panel-body" *ngFor="let cipher of cipherArray">{{cipher}}</div>  
+    </div>  
   </div>
 </div>
 <router-outlet></router-outlet>
